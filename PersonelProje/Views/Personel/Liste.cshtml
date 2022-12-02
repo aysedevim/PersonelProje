@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PersonelProje.DTO.PersonelDTO>
+
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>Personel Listesi</h1>
+
+<p>
+    <a href="/Personel/Giris">Yeni Giriş</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdSoy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UlkeAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SehirAdi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdSoy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UlkeAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SehirAdi)
+            </td>
+            <td>
+           @*     @Html.ActionLink("Güncelle", "Güncel", new { Id=item.Id  }) | *@
+                <a class= "btn btn-success" href="/Personel/Guncel/@item.Id">Güncelle</a>
+                @*@Html.ActionLink("Sil", "Sil", new {  Id=item.Id })*@
+                <a class ="btn btn-danger" href="/Personel/Sil/@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

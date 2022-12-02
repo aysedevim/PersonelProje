@@ -1,0 +1,26 @@
+﻿@model PersonelProje.Data.Egitim
+
+
+@{
+    ViewData["Title"] = "Sil";
+}
+
+<h1>Silme Islemi</h1>
+<div class="row">
+    <div class="col-md-5">
+
+        <form method="post">
+            <div>
+                <label>Id</label>
+                <input class="form-control" readonly type="text" value="@Model.Id" name="Id" /> 
+             
+            </div>
+            <div>
+                <label>Ad</label>
+                <input class="form-control" readonly type="text" value="@Model.EgitimAdi" name="EgitimAdi" />
+            </div>
+            <input class="btn btn-danger" type="submit" value="Sil"/>
+        </form>
+    </div>
+</div>
+

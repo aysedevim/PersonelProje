@@ -1,0 +1,27 @@
+﻿@model PersonelProje.Data.Ulke 
+@*//ulke class içerisinde iki propeties var. inputlar içerisindeki nameler bu class içerisindeki propertiesler ile aynı olursa string ıd,string yeniverilenisim
+yerine ulke ulke şeklinde yazılabilir.*@
+
+@{
+    ViewData["Title"] = "Guncel";
+}
+
+<h1>Guncelleme Islemi</h1>
+<div class="row">
+    <div class="col-md-5">
+        @*//buradaki değişkenleri okumak için form eklenir.get dersek okur ve getirir. post dersek önce get eder. sonra submit yaptığımızda *@
+        <form method="post">
+            <div>
+                <label>Id</label>
+                <input class="form-control" readonly type="text" value="@Model.Id" name="Id" /> 
+              @*  readonly yazılmazsa ülke kodu değiştirildiğinde databasedeki o kod üzerinde değişiklik yapılır.bu da karışıklık yaratır.*@
+            </div>
+            <div>
+                <label>Ad</label>
+                <input class="form-control" type="text" value="@Model.UlkeAdi" name="UlkeAdi" />
+            </div>
+            <input class="btn btn-success" type="submit" value="Güncelle"/>
+        </form>
+    </div>
+</div>
+

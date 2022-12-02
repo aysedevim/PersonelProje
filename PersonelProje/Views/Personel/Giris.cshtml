@@ -1,0 +1,89 @@
+﻿@model PersonelProje.Models.PersonelModel
+
+@{
+    ViewData["Title"] = "Guncel";
+}
+
+<h1>Yeni Giriş</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="Personel.Id" class="control-label">Id</label>
+                <input readonly value="@Model.Personel.Id" class="form-control" name="Personel.Id" />
+               
+            </div>
+            <div class="form-group">
+                <label for="Personel.Ad" class="control-label">Ad</label>
+                <input value="@Model.Personel.Ad" class="form-control" name="Personel.Ad" />
+               
+            </div>
+            <div class="form-group">
+                <label for="Personel.Soyad" class="control-label">Soyad</label>
+                <input value="@Model.Personel.Soyad" class="form-control" name="Personel.Soyad" /> @*input içerisinde values ve name girilmememisine rağmen sayfa kaynağını görüntülediğimizde arka planda otomatik doldurulduğunu görürüz.*@
+                
+            </div>
+            <div class="form-group">
+                <label for="Personel.Maas" class="control-label">Maas</label>
+                <input value="@Model.Personel.Maas" class="form-control" name="Personel.Maas" />
+                
+            </div>
+            
+                
+            <div class="form-group">
+                <label class="control-label" for="Personel.SehirId">Şehir Seçiniz</label><br />
+                <select class="form-control" name="Personel.SehirId" >
+                    @foreach(var item in Model.Sehirler)
+                    {
+                        if (@Model.Personel.SehirId != item.Id)
+                        {
+                            <option value="@item.Id">@item.SehirAdi</option> //seçili olan şehir dışındaki tüm şehirler kalır. else ile seçili şehir yazdırılır.
+                        }
+                        else 
+                        {
+                            <option selected value="@item.Id">@item.SehirAdi</option> //selected ile seçili olan yazdırılır.
+                        }
+                    
+                    }
+                    
+                </select>
+                </div>
+                    
+                <div class="form-group">
+                <label class="control-label" for="Personel.UlkeId">Ülke Seçiniz</label><br />
+                <select class="form-control" name="Personel.UlkeId">
+                    @foreach (var item in Model.Ulkeler)
+                    {
+                        if (@Model.Personel.UlkeId != item.Id)
+                        {
+                            <option class="form-control" value="@item.Id">@item.UlkeAdi</option>
+                            
+                        }
+                        else
+                        {
+                            <option selected class="form-control" value="@item.Id">@item.UlkeAdi</option>
+                            
+                        }
+
+                    }
+
+                </select>
+                </div>
+            
+         
+            <div align ="right"class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+                <div align="right">
+                    <a href="/Personel/Liste">Back to List</a>
+                </div>
+
+        </form>
+    </div>
+</div>
+
+

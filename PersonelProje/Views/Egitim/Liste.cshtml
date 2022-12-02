@@ -1,0 +1,36 @@
+﻿@model List<PersonelProje.Data.Egitim>
+@{
+    ViewData["Title"] = "Liste";
+}
+
+<h1>Eğitim Listesi</h1>
+<div class="row">
+    <div class="col-md-7">
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.EgitimAdi</td>
+                        <td><a class="btn btn-danger" href="/Egitim/Sil/@item.Id ">Sil</a></td>
+                        <td><a class="btn btn-success" href="/Egitim/Guncel/@item.Id ">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="/Egitim/Giris">Yeni Giriş</a>
+
+    </div>
+
+</div>

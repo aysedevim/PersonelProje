@@ -1,0 +1,27 @@
+﻿@model PersonelProje.Models.EgitimModel
+
+
+@{
+    ViewData["Title"] = "Giris";
+}
+
+<h1>Giriş İşlemi</h1>
+<div class="row">
+    <div class="col-md-5">
+       
+        <form method="post">
+            <div>
+                <label>Eklenecek Id</label>
+
+                <input class="form-control" readonly value="@Model.SonId" type="text"  name="SonId"/>
+            </div>
+           
+            <div>
+                <label>Ad</label>
+                <input class="form-control" type="text"  name="Egitim.EgitimAdi" />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Kaydet"/>
+        </form>
+    </div>
+</div>
+
